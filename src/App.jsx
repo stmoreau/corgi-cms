@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import fileDownload from 'js-file-download';
 import Admin from './pages/Admin';
 import Preview from './pages/Preview';
@@ -110,7 +110,7 @@ class App extends Component {
   render() {
     const { showNav } = this.state;
     return (
-      <Router>
+      <Router basename="/">
         <div>
           {showNav ? (
             <nav
