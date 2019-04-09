@@ -118,10 +118,7 @@ class App extends Component {
               className="navbar navbar-dark bg-dark navbar-expand-lg sticky-top"
             >
               <div className="navbar-nav">
-                <NavLink
-                  className="nav-item nav-link"
-                  to={process.env.PUBLIC_URL + '/'}
-                >
+                <NavLink className="nav-item nav-link" to="/">
                   <img
                     style={{
                       width: '26px',
@@ -130,16 +127,10 @@ class App extends Component {
                     alt="logo"
                   />
                 </NavLink>
-                <NavLink
-                  className="nav-item nav-link"
-                  to={process.env.PUBLIC_URL + '/admin'}
-                >
+                <NavLink className="nav-item nav-link" to="/admin">
                   Admin
                 </NavLink>
-                <NavLink
-                  className="nav-item nav-link"
-                  to={process.env.PUBLIC_URL + '/preview'}
-                >
+                <NavLink className="nav-item nav-link" to="/preview">
                   Preview
                 </NavLink>
 
@@ -161,20 +152,16 @@ class App extends Component {
           ) : (
             ''
           )}
-          <Route
-            exact
-            path={process.env.PUBLIC_URL + '/'}
-            component={Welcome}
-          />
+          <Route exact path="/" component={Welcome} />
 
           <Route
             exact
-            path={process.env.PUBLIC_URL + '/preview'}
+            path="/preview"
             component={withProps(Preview, { json: this.state.json })}
           />
           <Route
             exact
-            path={process.env.PUBLIC_URL + '/admin'}
+            path="/admin"
             component={withProps(Admin, {
               json: this.state.json,
               updateStateJson: this.updateStateJson,
