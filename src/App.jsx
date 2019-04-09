@@ -6,6 +6,7 @@ import Preview from './pages/Preview';
 import AppNavigationButton from './components/AppNavigationButton';
 import UploadFile from './components/UploadFile';
 import Welcome from './components/Welcome';
+import logo from './logo.svg';
 
 function withProps(Component, props) {
   return function(matchProps) {
@@ -117,10 +118,28 @@ class App extends Component {
               className="navbar navbar-dark bg-dark navbar-expand-lg sticky-top"
             >
               <div className="navbar-nav">
-                <NavLink className="nav-item nav-link" to="/admin">
+                <NavLink
+                  className="nav-item nav-link"
+                  to={process.env.PUBLIC_URL + '/'}
+                >
+                  <img
+                    style={{
+                      width: '26px',
+                    }}
+                    src={logo}
+                    alt="logo"
+                  />
+                </NavLink>
+                <NavLink
+                  className="nav-item nav-link"
+                  to={process.env.PUBLIC_URL + '/admin'}
+                >
                   Admin
                 </NavLink>
-                <NavLink className="nav-item nav-link" to="/preview">
+                <NavLink
+                  className="nav-item nav-link"
+                  to={process.env.PUBLIC_URL + '/preview'}
+                >
                   Preview
                 </NavLink>
 
