@@ -18,6 +18,9 @@ code {
 body * {
   display: block;
 }
+body script {
+  display: none;
+}
 .btn-add::after {
   content: 'Add';
 }
