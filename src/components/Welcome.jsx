@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../logo.svg';
 import soundFile from '../corgi-bark.mp3';
 
 const Welcome = () => {
-  function playSound() {
+  const [hasVibrateClass, setHasVibrateClass] = useState(false);
+
+  function playSound(event) {
+    event.target.classList.add('vibrate');
+    setHasVibrateClass(true);
     let corgiBark = new Audio(soundFile);
     corgiBark.play();
+    corgiBark.onended = function() {
+      setHasVibrateClass(false);
+    };
   }
 
   return (
@@ -20,6 +27,7 @@ const Welcome = () => {
           marginRight: 'auto',
           width: '40%',
         }}
+        className={hasVibrateClass ? 'vibrate' : ''}
         src={logo}
         alt="logo"
       />
