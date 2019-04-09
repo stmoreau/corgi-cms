@@ -142,17 +142,20 @@ class App extends Component {
           ) : (
             ''
           )}
-
-          <Route exact path="/" component={Welcome} />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/'}
+            component={Welcome}
+          />
 
           <Route
             exact
-            path="/preview"
+            path={process.env.PUBLIC_URL + '/preview'}
             component={withProps(Preview, { json: this.state.json })}
           />
           <Route
             exact
-            path="/admin"
+            path={process.env.PUBLIC_URL + '/admin'}
             component={withProps(Admin, {
               json: this.state.json,
               updateStateJson: this.updateStateJson,
