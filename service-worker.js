@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/corgi-cms/precache-manifest.578903cb209bd79a9def20a3d9dab5b9.js"
+  "/corgi-cms/precache-manifest.eb74bbf56820eda317ecbce1de74387e.js"
 );
 
 workbox.clientsClaim();

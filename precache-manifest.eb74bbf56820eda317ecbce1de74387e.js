@@ -4,27 +4,31 @@ self.__precacheManifest = [
     "url": "/corgi-cms/static/media/logo.b9afc9fb.svg"
   },
   {
+    "revision": "2cb6a9d23235c52a8418bded20cf6d7a",
+    "url": "/corgi-cms/static/media/corgi-bark.2cb6a9d2.mp3"
+  },
+  {
     "revision": "6d0fc7796671f5e09a57",
     "url": "/corgi-cms/static/js/runtime~main.19e547fc.js"
   },
   {
-    "revision": "2d2d19bd795c55862c68",
-    "url": "/corgi-cms/static/js/main.dd301295.chunk.js"
+    "revision": "d8f3f2c33a8ed75bc317",
+    "url": "/corgi-cms/static/js/main.b1a34e11.chunk.js"
   },
   {
-    "revision": "062496fb4f9d935f8f11",
-    "url": "/corgi-cms/static/js/2.c2fc7ff9.chunk.js"
+    "revision": "df2ff0cec34faed04645",
+    "url": "/corgi-cms/static/js/2.982f3a1c.chunk.js"
   },
   {
-    "revision": "2d2d19bd795c55862c68",
+    "revision": "d8f3f2c33a8ed75bc317",
     "url": "/corgi-cms/static/css/main.663b6bf0.chunk.css"
   },
   {
-    "revision": "062496fb4f9d935f8f11",
+    "revision": "df2ff0cec34faed04645",
     "url": "/corgi-cms/static/css/2.53ec8488.chunk.css"
   },
   {
-    "revision": "52a5c287138d9442f26b2680d0ce748e",
+    "revision": "185783539d09c11531ce9312051b7836",
     "url": "/corgi-cms/index.html"
   }
 ];
