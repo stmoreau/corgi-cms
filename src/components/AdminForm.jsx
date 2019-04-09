@@ -37,8 +37,8 @@ const componentsSchema = {
         component: {
           title: 'Choose the component',
           type: 'string',
-          enum: ['div', 'p', 'a', 'grid'],
-          enumNames: ['Div', 'Paragraph', 'Anchor', 'Grid'],
+          enum: ['div', 'text', 'a', 'grid', 'img'],
+          enumNames: ['Div', 'TextComponent', 'Anchor', 'Grid', 'Image'],
         },
         text: {
           type: 'string',
@@ -65,7 +65,24 @@ const componentsSchema = {
             {
               properties: {
                 component: {
+                  enum: ['img'],
+                },
+                file: {
+                  type: 'string',
+                  format: 'data-url',
+                  title: 'Single Image',
+                },
+              },
+            },
+            {
+              properties: {
+                component: {
                   enum: ['grid'],
+                },
+                file: {
+                  type: 'string',
+                  format: 'data-url',
+                  title: 'Add background image',
                 },
                 content: {
                   title: 'Add row',
@@ -216,7 +233,7 @@ const componentsSchema = {
             {
               properties: {
                 component: {
-                  enum: ['div', 'p'],
+                  enum: ['div', 'text'],
                 },
               },
             },

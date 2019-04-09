@@ -21,7 +21,7 @@ class App extends Component {
       title: 'title example',
       body: [
         {
-          component: 'p',
+          component: 'text',
           text: '<h1>H1 text</h1>',
           // style: {
           //   color: 'red',
@@ -47,7 +47,7 @@ class App extends Component {
                   component: 'col',
                   content: [
                     {
-                      component: 'p',
+                      component: 'text',
                       text: '<h1>H1 text</h1>',
                       // style: {
                       //   color: 'red',

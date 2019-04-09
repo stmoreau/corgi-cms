@@ -1,16 +1,16 @@
 import React from 'react';
-import Div from './Div';
 import IonText from './IonText';
 import IonAnchor from './IonAnchor';
 import IonGrid from './IonGrid';
 import IonRow from './IonRow';
 import IonCol from './IonCol';
+import IonImg from './IonImg';
 
 const ComponentFinder = ({ element, i }) => {
   if (element && element.component) {
-    if (element.component === 'div') {
-      return <Div element={element} key={i} />;
-    } else if (element.component === 'p') {
+    if (element.component === 'img') {
+      return <IonImg element={element} key={i} />;
+    } else if (element.component === 'text') {
       return <IonText element={element} key={i} />;
     } else if (element.component === 'a') {
       return <IonAnchor element={element} key={i} />;
