@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/corgi-cms/static/js/runtime~main.19e547fc.js"
   },
   {
-    "revision": "c13702a9fb94aedc616e",
+    "revision": "69fb7672b77c68d7ece3",
     "url": "/corgi-cms/static/js/main.d8e2a621.chunk.js"
   },
   {
@@ -20,15 +20,15 @@ self.__precacheManifest = [
     "url": "/corgi-cms/static/js/2.e0c838d6.chunk.js"
   },
   {
-    "revision": "c13702a9fb94aedc616e",
-    "url": "/corgi-cms/static/css/main.df0d5593.chunk.css"
+    "revision": "69fb7672b77c68d7ece3",
+    "url": "/corgi-cms/static/css/main.53e71dd4.chunk.css"
   },
   {
     "revision": "fe1f1c4576146ccb6c91",
     "url": "/corgi-cms/static/css/2.53ec8488.chunk.css"
   },
   {
-    "revision": "53796a99d63fa9bfd5d76819fb873a51",
+    "revision": "227928f3fb91605268225740ce793400",
     "url": "/corgi-cms/index.html"
   }
 ];
