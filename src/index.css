@@ -28,6 +28,9 @@ a {
   display: inline-block;
   color: inherit !important;
 }
+a.nav-item.nav-link {
+  color: white !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
