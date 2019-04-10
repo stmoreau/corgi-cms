@@ -1,17 +1,17 @@
 {
-  "main.css": "/corgi-cms/static/css/main.79eab71c.chunk.css",
-  "main.js": "/corgi-cms/static/js/main.101b6701.chunk.js",
-  "main.js.map": "/corgi-cms/static/js/main.101b6701.chunk.js.map",
+  "main.css": "/corgi-cms/static/css/main.df0d5593.chunk.css",
+  "main.js": "/corgi-cms/static/js/main.d8e2a621.chunk.js",
+  "main.js.map": "/corgi-cms/static/js/main.d8e2a621.chunk.js.map",
   "runtime~main.js": "/corgi-cms/static/js/runtime~main.19e547fc.js",
   "runtime~main.js.map": "/corgi-cms/static/js/runtime~main.19e547fc.js.map",
   "static/css/2.53ec8488.chunk.css": "/corgi-cms/static/css/2.53ec8488.chunk.css",
   "static/js/2.e0c838d6.chunk.js": "/corgi-cms/static/js/2.e0c838d6.chunk.js",
   "static/js/2.e0c838d6.chunk.js.map": "/corgi-cms/static/js/2.e0c838d6.chunk.js.map",
   "index.html": "/corgi-cms/index.html",
-  "precache-manifest.5240873262b162558be28a233fd5ef49.js": "/corgi-cms/precache-manifest.5240873262b162558be28a233fd5ef49.js",
+  "precache-manifest.b9776e6ce6af6080126ea4eb9621dd33.js": "/corgi-cms/precache-manifest.b9776e6ce6af6080126ea4eb9621dd33.js",
   "service-worker.js": "/corgi-cms/service-worker.js",
   "static/css/2.53ec8488.chunk.css.map": "/corgi-cms/static/css/2.53ec8488.chunk.css.map",
-  "static/css/main.79eab71c.chunk.css.map": "/corgi-cms/static/css/main.79eab71c.chunk.css.map",
+  "static/css/main.df0d5593.chunk.css.map": "/corgi-cms/static/css/main.df0d5593.chunk.css.map",
   "static/media/corgi-bark.mp3": "/corgi-cms/static/media/corgi-bark.2cb6a9d2.mp3",
   "static/media/logo.svg": "/corgi-cms/static/media/logo.b9afc9fb.svg"
 }

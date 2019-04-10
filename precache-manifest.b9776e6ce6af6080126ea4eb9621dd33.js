@@ -12,23 +12,23 @@ self.__precacheManifest = [
     "url": "/corgi-cms/static/js/runtime~main.19e547fc.js"
   },
   {
-    "revision": "f7ad6bf144e77fc5749e",
-    "url": "/corgi-cms/static/js/main.101b6701.chunk.js"
+    "revision": "c13702a9fb94aedc616e",
+    "url": "/corgi-cms/static/js/main.d8e2a621.chunk.js"
   },
   {
     "revision": "fe1f1c4576146ccb6c91",
     "url": "/corgi-cms/static/js/2.e0c838d6.chunk.js"
   },
   {
-    "revision": "f7ad6bf144e77fc5749e",
-    "url": "/corgi-cms/static/css/main.79eab71c.chunk.css"
+    "revision": "c13702a9fb94aedc616e",
+    "url": "/corgi-cms/static/css/main.df0d5593.chunk.css"
   },
   {
     "revision": "fe1f1c4576146ccb6c91",
     "url": "/corgi-cms/static/css/2.53ec8488.chunk.css"
   },
   {
-    "revision": "81a784081c7f69e2cf98375621cb9510",
+    "revision": "53796a99d63fa9bfd5d76819fb873a51",
     "url": "/corgi-cms/index.html"
   }
 ];
