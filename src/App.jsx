@@ -17,64 +17,13 @@ function withProps(Component, props) {
 class App extends Component {
   state = {
     showNav: true,
-    json: {
-      title: 'title example',
-      body: [
-        {
-          component: 'text',
-          text: '<h1>H1 text</h1>',
-          // style: {
-          //   color: 'red',
-          //   'background-color': 'pink',
-          // },
-        },
-        {
-          component: 'a',
-          text: 'link text',
-          href: '/example/href',
-          // style: {
-          //   color: 'yellow',
-          //   'background-color': 'blue',
-          // },
-        },
-        {
-          component: 'grid',
-          content: [
-            {
-              component: 'row',
-              content: [
-                {
-                  component: 'col',
-                  content: [
-                    {
-                      component: 'text',
-                      text: '<h1>H1 text</h1>',
-                      // style: {
-                      //   color: 'red',
-                      //   'background-color': 'pink',
-                      // },
-                    },
-                    {
-                      component: 'a',
-                      text: 'link text',
-                      href: '/example/href',
-                      style: {
-                        color: 'yellow',
-                        'background-color': 'blue',
-                      },
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+    json: JSON.parse(localStorage.getItem('content-json')) || {},
   };
 
   updateStateJson = formData => {
-    this.setState({ json: formData });
+    this.setState({ json: formData }, () => {
+      localStorage.setItem('content-json', JSON.stringify(formData));
+    });
   };
 
   exportHtml = () => {
@@ -88,10 +37,6 @@ class App extends Component {
     fileDownload(JSON.stringify(this.state.json), 'html-information.json');
   };
 
-  importJson = () => {
-    console.log('import Json');
-  };
-
   onDrop = acceptedFiles => {
     const reader = new FileReader();
 
@@ -99,9 +44,10 @@ class App extends Component {
     reader.onerror = () => console.log('file reading has failed');
     reader.onload = () => {
       const binaryStr = reader.result;
-      console.log(binaryStr);
 
-      this.setState({ json: JSON.parse(binaryStr) });
+      this.setState({ json: JSON.parse(binaryStr) }, () => {
+        localStorage.setItem('content-json', binaryStr);
+      });
     };
 
     acceptedFiles.forEach(file => reader.readAsBinaryString(file));

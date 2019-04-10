@@ -2,37 +2,27 @@ import React from 'react';
 import ComponentGenerator from './ComponentFinder';
 
 const IonCol = ({ element }) => {
+  const alignSelfStart =
+    element.alignSelf === 'align-self-start' ? '' : undefined;
+  const alignSelfCenter =
+    element.alignSelf === 'align-self-center' ? '' : undefined;
+  const alignSelfEnd = element.alignSelf === 'align-self-end' ? '' : undefined;
+  const alignSelfStretch =
+    element.alignSelf === 'align-self-stretch' ? '' : undefined;
+  const alignSelfBaseline =
+    element.alignSelf === 'align-self-baseline' ? '' : undefined;
+  const classNames = element.colClasses ? element.colClasses.join(' ') : ' ';
   return (
     <ion-col
-      align-self-start={element.alignSelfStart}
-      align-self-center={element.alignSelfCenter}
-      align-self-end={element.alignSelfEnd}
-      align-self-stretch={element.alignSelfStretch}
-      align-self-baseline={element.alignSelfBaseline}
+      class={classNames}
+      style={element.styles}
+      align-self-start={alignSelfStart}
+      align-self-center={alignSelfCenter}
+      align-self-end={alignSelfEnd}
+      align-self-stretch={alignSelfStretch}
+      align-self-baseline={alignSelfBaseline}
       offset={element.offset}
-      offset-lg={element.offsetLg}
-      offset-md={element.offsetMd}
-      offset-sm={element.offsetSm}
-      offset-xl={element.offsetXl}
-      offset-xs={element.offsetXs}
-      pull={element.pull}
-      pull-lg={element.pullLg}
-      pull-md={element.pullMd}
-      pull-sm={element.pullSm}
-      pull-xl={element.pullXl}
-      pull-xs={element.pullXs}
-      push={element.push}
-      push-lg={element.pushLg}
-      push-md={element.pushMd}
-      push-sm={element.pushSm}
-      push-xl={element.pushXl}
-      push-xs={element.pushXs}
       size={element.size}
-      size-lg={element.sizeLg}
-      size-md={element.sizeMd}
-      size-sm={element.sizeSm}
-      size-xl={element.sizeXl}
-      size-xs={element.sizeXs}
     >
       {element.content.map((el, i) =>
         el.component ? <ComponentGenerator element={el} key={i} /> : ''

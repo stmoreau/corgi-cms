@@ -9,15 +9,30 @@ body {
   position: relative;
   overflow: scroll;
 }
-
+body * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+hr {
+  border-color: inherit;
+}
+.container-md {
+  max-width: 800px;
+}
+.container-sm {
+  max-width: 640px;
+}
+img,
+a {
+  display: inline-block;
+  color: inherit !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-body * {
-  display: block;
-}
 body script {
   display: none;
 }
@@ -57,4 +72,8 @@ body script {
   100% {
     transform: translate(0);
   }
+}
+
+ion-content {
+  height: 100vh;
 }

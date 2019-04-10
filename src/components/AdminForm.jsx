@@ -10,7 +10,74 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 library.add(faPlusCircle, faMinusCircle, faArrowCircleUp, faArrowCircleDown);
 const uiSchema = {
-  'ui:enumDisabled': ['row'],
+  body: {
+    header: {
+      items: {
+        text: {
+          'ui:widget': 'textarea',
+        },
+        content: {
+          items: {
+            content: {
+              items: {
+                content: {
+                  items: {
+                    text: {
+                      'ui:widget': 'textarea',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    content: {
+      items: {
+        text: {
+          'ui:widget': 'textarea',
+        },
+        content: {
+          items: {
+            content: {
+              items: {
+                content: {
+                  items: {
+                    text: {
+                      'ui:widget': 'textarea',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    footer: {
+      items: {
+        text: {
+          'ui:widget': 'textarea',
+        },
+        content: {
+          items: {
+            content: {
+              items: {
+                content: {
+                  items: {
+                    text: {
+                      'ui:widget': 'textarea',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 };
 const componentsSchema = {
   title: 'Configure your site',
@@ -23,10 +90,30 @@ const componentsSchema = {
       default: 'Hello world!',
     },
     body: {
-      type: 'array',
+      type: 'object',
       title: 'Build the content',
-      items: {
-        $ref: '#/definitions/elements',
+      properties: {
+        header: {
+          title: 'header content',
+          type: 'array',
+          items: {
+            $ref: '#/definitions/elements',
+          },
+        },
+        content: {
+          title: 'main content',
+          type: 'array',
+          items: {
+            $ref: '#/definitions/elements',
+          },
+        },
+        footer: {
+          title: 'footer content',
+          type: 'array',
+          items: {
+            $ref: '#/definitions/elements',
+          },
+        },
       },
     },
   },
@@ -37,13 +124,8 @@ const componentsSchema = {
         component: {
           title: 'Choose the component',
           type: 'string',
-          enum: ['div', 'text', 'a', 'grid', 'img'],
-          enumNames: ['Div', 'TextComponent', 'Anchor', 'Grid', 'Image'],
-        },
-        text: {
-          type: 'string',
-          title: 'Text',
-          description: 'A sample text to import',
+          enum: ['text', 'a', 'grid', 'img'],
+          enumNames: ['Text', 'Anchor', 'Grid', 'Image'],
         },
       },
       dependencies: {
@@ -59,6 +141,13 @@ const componentsSchema = {
                   title: 'Href',
                   description: 'path to the link',
                 },
+                text: {
+                  type: 'string',
+                  title: 'A sample text to import',
+                },
+                styles: {
+                  $ref: '#/definitions/style',
+                },
               },
               required: ['href'],
             },
@@ -72,6 +161,9 @@ const componentsSchema = {
                   format: 'data-url',
                   title: 'Single Image',
                 },
+                styles: {
+                  $ref: '#/definitions/style',
+                },
               },
             },
             {
@@ -84,8 +176,11 @@ const componentsSchema = {
                   format: 'data-url',
                   title: 'Add background image',
                 },
+                styles: {
+                  $ref: '#/definitions/style',
+                },
                 content: {
-                  title: 'Add row',
+                  title: 'Row',
                   type: 'array',
                   items: {
                     type: 'object',
@@ -94,50 +189,60 @@ const componentsSchema = {
                         enum: ['row'],
                         default: 'row',
                       },
+                      rowClasses: {
+                        type: 'array',
+                        uniqueItems: true,
+                        items: {
+                          $ref: '#/definitions/classes',
+                        },
+                      },
                       flexWrap: {
-                        title: 'Flex-wrap',
+                        title: 'Flex Wrap',
                         type: 'string',
-                        enum: ['nowrap', 'wrap', 'wrap-reverse'],
-                        enumNames: ['Nowrap(Default)', 'Wrap', 'Wrap-reverse'],
+                        enum: ['nowrap', 'wrap-reverse'],
+                        enumNames: ['No Wrap', 'Wrap Reverse'],
                       },
                       alignItems: {
-                        title: 'Align-Items',
+                        title: 'Align Items',
                         type: 'string',
                         enum: [
-                          'flex-start',
-                          'flex-end',
-                          'center',
-                          'baseline',
-                          'stretch',
+                          'align-items-start',
+                          'align-items-center',
+                          'align-items-end',
+                          'align-items-stretch',
+                          'align-items-baseline',
                         ],
                         enumNames: [
-                          'Flex-start',
-                          'Flex-end',
+                          'Start',
                           'Center',
-                          'Baseline',
+                          'End',
                           'Stretch',
+                          'Baseline',
                         ],
                       },
                       justifyContent: {
-                        title: 'Justify-content',
+                        title: 'Justify Content',
                         type: 'string',
                         enum: [
-                          'flex-start',
-                          'flex-end',
-                          'center',
-                          'space-between',
-                          'space-around',
+                          'justify-content-start',
+                          'justify-content-center',
+                          'justify-content-end',
+                          'justify-content-around',
+                          'justify-content-between',
                         ],
                         enumNames: [
-                          'Flex-start',
-                          'Flex-end',
+                          'Start',
                           'Center',
-                          'Space-between',
-                          'Space-around',
+                          'End',
+                          'Around',
+                          'Between',
                         ],
                       },
+                      styles: {
+                        $ref: '#/definitions/style',
+                      },
                       content: {
-                        title: 'Add column',
+                        title: 'Column',
                         type: 'array',
                         items: {
                           type: 'object',
@@ -146,17 +251,24 @@ const componentsSchema = {
                               enum: ['col'],
                               default: 'col',
                             },
+                            colClasses: {
+                              type: 'array',
+                              uniqueItems: true,
+                              items: {
+                                $ref: '#/definitions/classes',
+                              },
+                            },
                             alignSelf: {
-                              title: 'Align-Self',
+                              title: 'Align Self',
                               type: 'string',
                               enum: [
-                                'align-self-center',
                                 'align-self-start',
+                                'align-self-center',
                                 'align-self-end',
                                 'align-self-stretch',
                                 'align-self-baseline',
                               ],
-                              default: 'align-self-center',
+                              default: 'align-self-start',
                             },
                             offset: {
                               description:
@@ -164,41 +276,21 @@ const componentsSchema = {
                               title: 'Offset',
                               type: 'string',
                               enum: [
-                                'offset',
-                                'offset-lg',
-                                'offset-sm',
-                                'offset-xl',
-                                'offset-xs',
+                                '0',
+                                '1',
+                                '2',
+                                '3',
+                                '4',
+                                '5',
+                                '6',
+                                '7',
+                                '8',
+                                '9',
+                                '10',
+                                '11',
+                                '12',
                               ],
-                              default: 'offset',
-                            },
-                            pull: {
-                              description:
-                                'The amount to pull the column, in terms of how many columns it should shift to the start of the total available.',
-                              title: 'Pull options',
-                              type: 'string',
-                              enum: [
-                                'pull',
-                                'pull-lg',
-                                'pull-md',
-                                'pull-sm',
-                                'pull-xl',
-                                'pull-xs',
-                              ],
-                              default: 'pull',
-                            },
-                            push: {
-                              title: 'Push options',
-                              type: 'string',
-                              enum: [
-                                'push',
-                                'push-lg',
-                                'push-md',
-                                'push-sm',
-                                'push-xl',
-                                'push-xs',
-                              ],
-                              default: 'push',
+                              default: '0',
                             },
                             size: {
                               description:
@@ -206,21 +298,30 @@ const componentsSchema = {
                               title: 'Size options',
                               type: 'string',
                               enum: [
-                                'size',
-                                'size-lg',
-                                'size-md',
-                                'size-sm',
-                                'size-xl',
-                                'size-xs',
+                                '1',
+                                '2',
+                                '3',
+                                '4',
+                                '5',
+                                '6',
+                                '7',
+                                '8',
+                                '9',
+                                '10',
+                                '11',
+                                '12',
                               ],
-                              default: 'size',
+                              default: '12',
                             },
                             content: {
-                              title: 'Add column content',
+                              title: 'column content',
                               type: 'array',
                               items: {
                                 $ref: '#/definitions/elements',
                               },
+                            },
+                            styles: {
+                              $ref: '#/definitions/style',
                             },
                           },
                         },
@@ -233,12 +334,62 @@ const componentsSchema = {
             {
               properties: {
                 component: {
-                  enum: ['div', 'text'],
+                  enum: ['text'],
+                },
+                text: {
+                  type: 'string',
+                  title: 'A sample text to import',
+                },
+                styles: {
+                  $ref: '#/definitions/style',
                 },
               },
             },
           ],
         },
+      },
+    },
+    classes: {
+      title: 'Add classes',
+      type: 'string',
+      anyOf: [
+        {
+          type: 'string',
+          enum: ['container'],
+          title: 'container(max-width:1160)',
+        },
+        {
+          type: 'string',
+          enum: ['container-md'],
+          title: 'container-md(max-width:800)',
+        },
+        {
+          type: 'string',
+          enum: ['container-sm'],
+          title: 'container-sm(max-width:640)',
+        },
+        {
+          type: 'string',
+          enum: ['text-left'],
+          title: 'text-left',
+        },
+        {
+          type: 'string',
+          enum: ['text-center'],
+          title: 'text-center',
+        },
+        {
+          type: 'string',
+          enum: ['text-right'],
+          title: 'text-right',
+        },
+      ],
+    },
+    style: {
+      type: 'object',
+      title: 'Add styles',
+      additionalProperties: {
+        type: 'string',
       },
     },
   },
@@ -247,10 +398,6 @@ const componentsSchema = {
 class AdminForm extends Component {
   handleSubmit = ({ formData }) => {
     this.props.updateFormData(formData);
-    console.log(this.props.json);
-  };
-  handleChange = ({ formData }) => {
-    console.log(formData);
   };
   arrayFieldTemplate = props => {
     const rowStyle = {
@@ -264,7 +411,6 @@ class AdminForm extends Component {
     return (
       <div className="row" style={rowStyle}>
         <div className="col col-sm-12">
-          {props.title}
           <br />
           {props.items.map((element, index) => (
             <div key={index} className="row" style={rowStyle2}>
@@ -275,7 +421,7 @@ class AdminForm extends Component {
                     type="button"
                     onClick={element.onDropIndexClick(index)}
                   >
-                    <FontAwesomeIcon icon="minus-circle" />
+                    Remove {props.title} <FontAwesomeIcon icon="minus-circle" />
                   </button>
                 )}
                 {element.hasMoveUp && (
@@ -304,7 +450,7 @@ class AdminForm extends Component {
               type="button"
               onClick={props.onAddClick}
             >
-              <FontAwesomeIcon icon="plus-circle" />
+              Add {props.title} <FontAwesomeIcon icon="plus-circle" />
             </button>
           )}
         </div>
@@ -321,7 +467,6 @@ class AdminForm extends Component {
         formData={this.props.formData}
         ArrayFieldTemplate={this.arrayFieldTemplate}
         onSubmit={this.handleSubmit}
-        onChange={this.handleChange}
       />
     );
   }

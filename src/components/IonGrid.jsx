@@ -11,7 +11,7 @@ const IonGrid = ({ element }) => {
   };
 
   return (
-    <ion-grid>
+    <ion-grid style={element.styles}>
       {element.file ? (
         <div style={backgroundImage}>
           {element.content.map((el, i) =>
